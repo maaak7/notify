@@ -2,10 +2,10 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import Home from '../views/Home';
-// import Categories from '../views/categories/Main';
-// import CategoriesList from '../views/categories/List';
-// import CreateCategory from '../views/categories/Create';
-// import EditCategory from '../views/categories/Edit';
+import Events from '../views/events/Main';
+import EventsList from '../views/events/List';
+import CreateEvent from '../views/events/Create';
+// import EditEvent from '../views/events/Edit';
 
 Vue.use(VueRouter);
 
@@ -19,35 +19,35 @@ const router = new VueRouter({
             component: Home,
             name: 'home',
             meta: {
-                title: 'Головна'
+                title: 'Home'
             }
         },
-        /*{
-            path: '/categories',
-            component: Categories,
+        {
+            path: '/events',
+            component: Events,
             children: [{
                 path: 'list',
-                name: 'categories_list',
-                component: CategoriesList,
+                name: 'events_list',
+                component: EventsList,
                 meta: {
-                    title: 'Список категорій'
+                    title: 'My events'
                 }
             }, {
                 path: 'create',
-                name: 'create_category',
-                component: CreateCategory,
+                name: 'create_event',
+                component: CreateEvent,
                 meta: {
-                    title: 'Створення категорії'
+                    title: 'Event creating'
                 }
-            }, {
+            }/*, {
                 path: 'edit/:id',
-                name: 'edit_category',
+                name: 'edit_event',
                 component: EditCategory,
                 meta: {
-                    title: 'Редагування категорії'
+                    title: 'Редагування події'
                 }
-            }],
-        }*/
+            }*/],
+        }
     ]
 });
 
