@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'events', 'middleware' => 'auth'], function () {
+    Route::post('/create', 'EventController@create');
+    Route::get('/{any?}', 'HomeController@index');
+});
+
+Route::group(['prefix' => 'notifications'], function () {
+    Route::post('/create', 'NotificationController@create');
 });
