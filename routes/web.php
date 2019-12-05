@@ -14,14 +14,15 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'events'], function () {
+Route::group(['prefix' => 'events', 'middleware' => 'auth'], function () {
+    Route::post('/create', 'EventController@create');
     Route::get('/{any?}', 'HomeController@index');
+});
+
+Route::group(['prefix' => 'notifications'], function () {
+    Route::post('/create', 'NotificationController@create');
 });

@@ -5,10 +5,10 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Routes from './routes/main';
+import {store} from './store/store';
 // import axios from 'axios';
 // import VueAxios from 'vue-axios';
 // import Vuetify from 'vuetify';
-// import {store} from './store/store';
 
 Vue.prototype.$url = window.location.protocol + '//' + window.location.host;
 
@@ -23,7 +23,7 @@ Vue.use(BootstrapVue);
 
 const app = new Vue({
     el: '#app',
-    // store,
+    store,
     router: Routes,
     render: h => h(App)
 });

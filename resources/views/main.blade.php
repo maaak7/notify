@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     <div id="app"></div>
